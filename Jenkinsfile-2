@@ -1,0 +1,74 @@
+pipeline {
+    agent any
+
+    environment {
+        // Si des variables d'environnement doivent être définies, elles peuvent l'être ici
+        ANSIBLE_CONFIG = 'ansible/ansible.cfg'  // Configurer le fichier Ansible
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                script {
+                    echo 'Cloning the repository from GitHub...'
+                    // Clonage du repository à partir de GitHub
+                    checkout scm
+                }
+            }
+        }
+
+        stage('Set Up Environment') {
+            steps {
+                script {
+                    echo 'Verifying Ansible installation...'
+                    // Vérification de la version d'Ansible
+                    sh 'ansible --version'
+                    sh 'ansible-playbook --version'
+                    sh 'ansible-galaxy --version'
+                }
+            }
+        }
+
+        stage('Verify Files') {
+            steps {
+                script {
+                    echo 'Verifying the playbook.yml file existence...'
+                    // Vérification que le playbook existe dans le répertoire attendu
+                    sh 'ls -la ansible/playbooks'
+                }
+            }
+        }
+
+        stage('Run Ansible Playbook') {
+            steps {
+                script {
+                    echo 'Running Ansible Playbook...'
+                    // Exécution du playbook Ansible avec le fichier d'inventaire
+                    sh 'ansible-playbook -i ansible/inventory.ini ansible/playbooks/playbook.yml'
+                }
+            }
+        }
+
+        stage('Post-execution') {
+            steps {
+                script {
+                    echo 'Cleaning up or archiving logs...'
+                    // Nettoyage ou archivage des logs si nécessaire
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            echo 'Pipeline finished. Cleaning up...'
+            // Actions post-exécution de la pipeline, comme supprimer des fichiers temporaires ou archiver des résultats
+        }
+        success {
+            echo 'Pipeline executed successfully.'
+        }
+        failure {
+            echo 'Pipeline failed. Please check the logs for errors.'
+        }
+    }
+}

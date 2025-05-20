@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "username": "Yassmine",
+    "email": "yassmin.elkobbi@gmail.com",
+    "password": "$2b$10$xCUJDsUwIzSlJFsCg7Pcnu1AChh6xEFXHNDJzN5QkVV4QNbZ/X1PO",
+    "role": "admin"
+  },
+  {
+    "id": 2,
+    "username": "hiba",
+    "email": "hibaelkobbi@gmail.com",
+    "password": "$2b$10$0Evp3x7rVtUHY71zbymGRucYmxzl5F2O/z8wlfOOBHMmiNkil6JRq",
+    "role": "student"
+  },
+  {
+    "id": 3,
+    "username": "Houda",
+    "email": "Houda@gmail.com",
+    "password": "$2b$10$6DoOVTkuHrTs8kiB8ZVw1ef8Hpntv14F7t7DsFq.CmKKQDfVMMmle",
+    "role": "teacher"
+  },
+  {
+    "id": 4,
+    "username": "Aziza",
+    "email": "Aziza@gmail.com ",
+    "password": "$2b$10$KV2JGYaonppbq.nPhdm09.htJmbloDlRfouomfB10/xfkjfbrl3bi",
+    "role": "student"
+  },
+  {
+    "id": 5,
+    "username": "Israe",
+    "email": "Israe@gmail.com",
+    "password": "$2b$10$Ak4Yg5Ax0NU13vbAYB4nyOwyBwp76lAjFht1NLomJsjpXJNPikBe.",
+    "role": "student"
+  },
+  {
+    "id": 6,
+    "username": "AMIKAH",
+    "email": "AMIKAH",
+    "password": "$2b$10$HwKOABOyDdofC.8wGhuwl.5JPltjINqgg9uvkiyILpuXBmHyKwfdW",
+    "role": "student"
+  }
+]

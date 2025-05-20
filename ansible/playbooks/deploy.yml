@@ -1,0 +1,17 @@
+---
+- name: Déploiement de gestion_absences avec Docker
+  hosts: localhost
+  become: false
+  tasks:
+    - name: Vérifier si le conteneur tourne
+      command: docker ps
+      register: docker_status
+
+    - name: Afficher les conteneurs actifs
+      debug:
+        var: docker_status.stdout_lines
+
+    - name: Recréer les conteneurs (si nécessaire)
+      command: docker compose up -d --build
+      args:
+        chdir: "{{ playbook_dir }}/../.."  # remonte à la racine du projet

@@ -1,0 +1,13 @@
+---
+- name: Install Apache on target servers
+  hosts: localhost
+  become: true  # ← ICI pour activer sudo
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+
+    - name: Install Apache
+      apt:
+        name: apache2
+        state: present

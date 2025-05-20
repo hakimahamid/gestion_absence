@@ -1,0 +1,19 @@
+{
+  "students": [
+    {
+      "userId": 4,
+      "moduleId": "1"
+    },
+    {
+      "userId": 5,
+      "moduleId": "1"
+    }
+    
+  ],
+  "teachers": [
+    {
+      "userId": 3,
+      "moduleId": "1"
+    }
+  ]
+}

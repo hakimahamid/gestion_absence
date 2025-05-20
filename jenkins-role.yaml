@@ -1,0 +1,9 @@
+kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  # Nom du rôle
+  name: jenkins-role
+rules:
+- apiGroups: [""]
+  resources: ["nodes"]
+  verbs: ["list"]

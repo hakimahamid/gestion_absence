@@ -1,0 +1,15 @@
+pipeline {
+  agent any  // Utilisation de n'importe quel agent disponible
+
+  stages {
+    stage('Hello') {
+      steps {
+        sh '''
+          ansible --version
+          ansible-playbook --version
+          ansible-galaxy --version
+        '''
+      }
+    }
+  }
+}
