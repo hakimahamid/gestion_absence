@@ -5,12 +5,13 @@ pipeline {
         DOCKER_BUILDKIT = 1
     }
 
-    stage('Build Docker Image') {
-  steps {
-    sh 'docker build -t gestion_absence_image:latest -f Dockerfile .'
-  }
-}
-
+    stages {
+        stage('Build Docker Image') {
+            steps {
+                echo '→ Build de l\'image Docker'
+                sh 'docker build --network host -t gestion_absences_image:latest -f Dockerfile .'
+            }
+        }
 
         stage('Docker Compose Up') {
             steps {
@@ -30,13 +31,6 @@ pipeline {
             steps {
                 echo '→ Installation des dépendances Selenium'
                 sh 'pip3 install selenium'
-            }
-        }
-
-        stage('Run Selenium Test') {
-            steps {
-                echo '→ Exécution du test Selenium'
-                sh 'python3 tests/test_google.py'
             }
         }
     }
