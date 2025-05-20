@@ -5,13 +5,12 @@ pipeline {
         DOCKER_BUILDKIT = 1
     }
 
-    stages {
-        stage('Build Docker Image') {
-            steps {
-                echo '→ Build de l\'image Docker'
-                sh 'docker build --network host -t gestion_absences_image:latest -f Dockerfile .'
-            }
-        }
+    stage('Build Docker Image') {
+  steps {
+    sh 'docker build -t gestion_absence_image:latest -f Dockerfile .'
+  }
+}
+
 
         stage('Docker Compose Up') {
             steps {
